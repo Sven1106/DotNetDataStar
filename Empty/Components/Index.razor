@@ -5,16 +5,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <link rel="stylesheet" href="css/tailwind.css">
-    <DatastarHeadOutlet UseEmbeddedDatastar="true"/>
+    <script type="module" src="https://cdn.jsdelivr.net/gh/starfederation/datastar@1.0.0-beta.11/bundles/datastar.js"></script>
     <title>@Title</title>
 </head>
 <body>
 <header>
     @Description
 </header>
-<main>
-
+<main class="container" id="main" data-signals="{'input':'','output':'what'}">
+    <button data-on-click="@@get('/displayDate')">Display Date</button>
+    <div id="target"></div>
 </main>
 </body>
 </html>
