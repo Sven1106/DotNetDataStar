@@ -1,3 +1,5 @@
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using Empty;
 using Empty.Components;
 using Microsoft.AspNetCore.Mvc;
@@ -26,6 +28,32 @@ app.MapGet("/displayDate", async ([FromServices] BlazorRenderer blazorRenderer, 
     await sse.MergeFragmentsAsync(fragment);
 });
 
-// removeDate - removing a fragment
 app.MapGet("/removeDate", async (IDatastarServerSentEventService sse) => { await sse.RemoveFragmentsAsync("#date"); });
+
+app.MapPost("/changeOutput", async (IDatastarServerSentEventService sse, IDatastarSignalsReaderService dsSignals) =>
+{
+    var signals = await dsSignals.ReadSignalsAsync<Signals>();
+    var newSignals = signals with
+    {
+        Output = $"Your Input: {signals.Input}"
+    };
+    await sse.MergeSignalsAsync(newSignals.Serialize());
+});
+
 app.Run();
+
+public record Signals(
+    [property: JsonPropertyName("input")]
+    [property: JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    string Input,
+    [property: JsonPropertyName("output")]
+    [property: JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    string Output)
+{
+    public string Serialize() =>
+        JsonSerializer.Serialize(new Dictionary<string, object?>
+        {
+            ["output"] = Output,
+            ["input"] = Input
+        });
+}

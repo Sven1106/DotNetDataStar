@@ -5,26 +5,26 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <script type="module" src="https://cdn.jsdelivr.net/gh/starfederation/datastar@1.0.0-beta.11/bundles/datastar.js"></script>
+    <script type="module"
+            src="https://cdn.jsdelivr.net/gh/starfederation/datastar@1.0.0-beta.11/bundles/datastar.js"></script>
     <title>@Title</title>
 </head>
 <body>
 <header>
     @Description
 </header>
-<main class="container" id="main" data-signals="{'input':'','output':'what'}">
+<main class="container" id="main" data-signals='{"input":"", "output":"what"}'>
     <button data-on-click="@@get('/displayDate')">Display Date</button>
     <div id="target"></div>
+    <input type="text" placeholder="input:" data-bind="input"/><br/>
+    <span data-text="$output"></span>
+    <button data-on-click="@@post('/changeOutput')">Change Output</button>
 </main>
 </body>
 </html>
 
 @code
 {
-    [Parameter] 
-    [EditorRequired]
-    public required string Title { get; set; }
-    [Parameter] 
-    [EditorRequired]
-    public required string Description { get; set; }
+    [Parameter] [EditorRequired] public required string Title { get; set; }
+    [Parameter] [EditorRequired] public required string Description { get; set; }
 }
