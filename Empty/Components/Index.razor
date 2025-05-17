@@ -20,11 +20,16 @@
     <span data-text="$output"></span>
     <button data-on-click="@@post('/changeOutput')">Change Output</button>
 </main>
+<ParameterChild Title="@Title" />
 </body>
 </html>
 
 @code
 {
     [Parameter] [EditorRequired] public required string Title { get; set; }
+}
+
+@code
+{
     [Parameter] [EditorRequired] public required string Description { get; set; }
 }
