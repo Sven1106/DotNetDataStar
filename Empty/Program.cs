@@ -1,9 +1,9 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Empty;
-using Empty.Components;
 using Microsoft.AspNetCore.Mvc;
 using StarFederation.Datastar.DependencyInjection;
+using DisplayDate = Empty.Components.DisplayDate;
 using Index = Empty.Components.Index;
 
 var builder = WebApplication.CreateBuilder(args);
