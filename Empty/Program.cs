@@ -1,43 +1,48 @@
-using System.Text.Json;
 using System.Text.Json.Serialization;
 using Empty;
+using Empty.Components;
+using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Mvc;
 using StarFederation.Datastar.DependencyInjection;
-using DisplayDate = Empty.Components.DisplayDate;
-using Index = Empty.Components.Index;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddBlazorRenderer();
+builder.Services.AddRazorComponents();
+builder.Services.AddScoped<HtmlRenderer>();
+builder.Services.AddScoped<BlazorRenderer>();
 builder.Services.AddDatastar();
+builder.Services.AddAntiforgery();
 var app = builder.Build();
+app.UseStatusCodePagesWithReExecute("/not-found");
 
-app.MapGet("/", async ([FromServices] BlazorRenderer blazorRenderer) =>
-{
-    var result = await blazorRenderer.RenderComponent<Index>(
-        new Index.Props(
-            "Datastar Minimal Blazor example",
-            "Hello there, this is the minimal api + blazor demo;")
-    );
-    return result;
-});
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+app.UseAntiforgery();
 
-app.MapGet("/displayDate", async ([FromServices] BlazorRenderer blazorRenderer, IDatastarServerSentEventService sse) =>
+app.MapRazorComponents<App>();
+
+app.MapGet("/displayDate", async (BlazorRenderer blazorRenderer, IDatastarService datastarService) =>
 {
     var today = DateTime.Now;
-    var fragment = await blazorRenderer.RenderComponentString<DisplayDate>(new DisplayDate.Props(today));
-    await sse.MergeFragmentsAsync(fragment);
+    var displayDate = new DisplayDate
+    {
+        Today = today,
+    };
+    var fragment = await blazorRenderer.RenderComponent<DisplayDate>(new DisplayDate.Props(today));
+    await datastarService.PatchElementsAsync(fragment);
 });
 
-app.MapGet("/removeDate", async (IDatastarServerSentEventService sse) => { await sse.RemoveFragmentsAsync("#date"); });
+app.MapPost("/removeDate", async (IDatastarService datastarService) => { await datastarService.RemoveElementAsync("#date"); });
 
-app.MapPost("/changeOutput", async (IDatastarServerSentEventService sse, IDatastarSignalsReaderService dsSignals) =>
+app.MapPost("/changeOutput", async (IDatastarService datastarService) =>
 {
-    var signals = await dsSignals.ReadSignalsAsync<Signals>();
-    var newSignals = signals with
+    var signals = await datastarService.ReadSignalsAsync<Signals>();
+    if (signals is not null)
     {
-        Output = $"Your Input: {signals.Input}"
-    };
-    await sse.MergeSignalsAsync(newSignals.Serialize());
+        await datastarService.PatchSignalsAsync(signals with
+        {
+            Output = $"Your Input: {signals.Input}"
+        });
+    }
 });
 
 app.Run();
@@ -48,12 +53,13 @@ public record Signals(
     string Input,
     [property: JsonPropertyName("output")]
     [property: JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    string Output)
+    string Output
+);
+
+public class Test : Attribute
 {
-    public string Serialize() =>
-        JsonSerializer.Serialize(new Dictionary<string, object?>
-        {
-            ["output"] = Output,
-            ["input"] = Input
-        });
+    public string Foo()
+    {
+        return "bar";
+    }
 }

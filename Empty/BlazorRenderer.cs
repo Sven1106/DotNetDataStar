@@ -1,36 +1,26 @@
+using System;
+using System.Collections.Generic;
+using System.Reflection;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.AspNetCore.Components.Web.HtmlRendering;
 
 namespace Empty;
 
 public class BlazorRenderer(HtmlRenderer htmlRenderer)
 {
-    public async Task<IResult> RenderComponent<TComponent>(Dictionary<string, object?>? parameters)
-        where TComponent : IComponent
-    {
-        var html = await htmlRenderer.Dispatcher.InvokeAsync(async () =>
-        {
-            var parameterView = parameters != null
-                ? ParameterView.FromDictionary(parameters)
-                : ParameterView.Empty;
-            var output = await htmlRenderer.RenderComponentAsync<TComponent>(parameterView);
+    public Task<string> RenderComponent<T>() where T : IComponent
+        => RenderComponent<T>(ParameterView.Empty);
 
-            return output.ToHtmlString();
-        });
-        
-        return Results.Content(html, "text/html");
-    }
-    
-    public Task<string> RenderComponentString<TComponent>(Dictionary<string, object?>? parameters)
-        where TComponent : IComponent
+    public Task<string> RenderComponent<T>(Dictionary<string, object?> parameters) where T : IComponent
+        => RenderComponent<T>(ParameterView.FromDictionary(parameters));
+
+    private Task<string> RenderComponent<T>(ParameterView parameters) where T : IComponent
     {
         return htmlRenderer.Dispatcher.InvokeAsync(async () =>
         {
-            var parameterView = parameters != null
-                ? ParameterView.FromDictionary(parameters)
-                : ParameterView.Empty;
-            var output = await htmlRenderer.RenderComponentAsync<TComponent>(parameterView);
-
+            var output = await htmlRenderer.RenderComponentAsync<T>(parameters);
             return output.ToHtmlString();
         });
     }
