@@ -2,8 +2,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Empty", "Empty\Empty.csproj", "{49B660CB-7356-495B-BF65-3E6D06B88859}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SourceGenerator", "SourceGenerator\SourceGenerator.csproj", "{F09617C1-9D0A-4EE3-86B9-E54B4ABDED38}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,9 +12,5 @@ Global
 		{49B660CB-7356-495B-BF65-3E6D06B88859}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49B660CB-7356-495B-BF65-3E6D06B88859}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49B660CB-7356-495B-BF65-3E6D06B88859}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F09617C1-9D0A-4EE3-86B9-E54B4ABDED38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F09617C1-9D0A-4EE3-86B9-E54B4ABDED38}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F09617C1-9D0A-4EE3-86B9-E54B4ABDED38}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F09617C1-9D0A-4EE3-86B9-E54B4ABDED38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

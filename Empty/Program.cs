@@ -1,8 +1,8 @@
 using System.Text.Json.Serialization;
 using Empty;
 using Empty.Components;
+using Empty.Components.Partials;
 using Microsoft.AspNetCore.Components.Web;
-using Microsoft.AspNetCore.Mvc;
 using StarFederation.Datastar.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -25,13 +25,14 @@ app.MapGet("/displayDate", async (BlazorRenderer blazorRenderer, IDatastarServic
     var today = DateTime.Now;
     var displayDate = new DisplayDate
     {
-        Today = today,
+        Today = today
     };
-    var fragment = await blazorRenderer.RenderComponent<DisplayDate>(new DisplayDate.Props(today));
+    var fragment = await blazorRenderer.RenderComponent(displayDate);
     await datastarService.PatchElementsAsync(fragment);
 });
 
-app.MapPost("/removeDate", async (IDatastarService datastarService) => { await datastarService.RemoveElementAsync("#date"); });
+app.MapPost("/removeDate",
+    async (IDatastarService datastarService) => { await datastarService.RemoveElementAsync("#date"); });
 
 app.MapPost("/changeOutput", async (IDatastarService datastarService) =>
 {
@@ -63,3 +64,13 @@ public class Test : Attribute
         return "bar";
     }
 }
+// public partial class DisplayDate
+// {
+//     public record Props(DateTime Today)
+//     {
+//         public static implicit operator Dictionary<string, object>(Props props) => new()
+//         {
+//             [nameof(props.Today)] = props.Today
+//         };
+//     }
+// }

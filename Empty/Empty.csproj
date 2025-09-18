@@ -6,15 +6,6 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="StarFederation.Datastar" Version="1.0.1"/>
+        <PackageReference Include="StarFederation.Datastar" Version="1.1.0"/>
     </ItemGroup>
-
-    <ItemGroup>
-        <ProjectReference Include="..\SourceGenerator\SourceGenerator.csproj" OutputItemType="Analyzer"/>
-    </ItemGroup>
-
-    <PropertyGroup>
-        <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
-    </PropertyGroup>
-
 </Project>
