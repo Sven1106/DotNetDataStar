@@ -4,7 +4,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Empty", "Empty\Empty.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo", "Todo\Todo.csproj", "{A509ED94-B9B0-4E19-9369-82FAF08AF002}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{D1B4C629-C703-4501-98DA-6CE1B6F97AAE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorRenderer", "BlazorRenderer\BlazorRenderer.csproj", "{D1B4C629-C703-4501-98DA-6CE1B6F97AAE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComponentParameterGenerator", "ComponentParameterGenerator\ComponentParameterGenerator.csproj", "{D9F033E9-E96C-442A-98DB-0663CF5C7FC9}"
 EndProject

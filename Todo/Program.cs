@@ -1,4 +1,5 @@
-using Shared;
+using BlazorRenderer;
+using BlazorRenderer.DependencyInjection.ServiceCollectionExtensionMethods;
 using StarFederation.Datastar.DependencyInjection;
 using Todo.Components;
 using Todo.Features;
