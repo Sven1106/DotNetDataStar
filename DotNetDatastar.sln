@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo", "Todo\Todo.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{D1B4C629-C703-4501-98DA-6CE1B6F97AAE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComponentParameterGenerator", "ComponentParameterGenerator\ComponentParameterGenerator.csproj", "{D9F033E9-E96C-442A-98DB-0663CF5C7FC9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{D1B4C629-C703-4501-98DA-6CE1B6F97AAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1B4C629-C703-4501-98DA-6CE1B6F97AAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1B4C629-C703-4501-98DA-6CE1B6F97AAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9F033E9-E96C-442A-98DB-0663CF5C7FC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9F033E9-E96C-442A-98DB-0663CF5C7FC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9F033E9-E96C-442A-98DB-0663CF5C7FC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9F033E9-E96C-442A-98DB-0663CF5C7FC9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

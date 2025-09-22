@@ -27,8 +27,8 @@ app.MapGet("/displayDate", async (BlazorRenderer blazorRenderer, IDatastarServic
     {
         Today = today
     };
-    var fragment = await blazorRenderer.RenderComponent(displayDate);
-    await datastarService.PatchElementsAsync(fragment);
+    // var fragment = await blazorRenderer.RenderComponent(displayDate);
+    // await datastarService.PatchElementsAsync(fragment);
 });
 
 app.MapPost("/removeDate",

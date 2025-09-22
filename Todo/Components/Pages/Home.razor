@@ -1,6 +1,6 @@
 @page "/"
 
-<main id="main" data-signals="{'input':'','output':'what'}" style="display: flex; flex-direction: column; gap: 20px;">
+<main id="main" data-signals="{'input':'','output':'what'}" style="display: flex; flex-direction: column; gap: 50px;">
     <div id="getTodos" data-on-load="@@get('/getTodos')"></div>
     <BigButton data-on-click=@("@get('/displayDate')")>Display Date</BigButton>
     <div id="target"></div>

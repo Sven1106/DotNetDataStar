@@ -10,13 +10,8 @@ public static class Endpoint
         endpoints.MapGet("/displayDate", async (BlazorRenderer blazorRenderer, IDatastarService datastarService) =>
         {
             var today = DateTime.Now;
-            var displayDate = new DisplayDate
-            {
-                Today = today
-            };
-            var fragment = await blazorRenderer.RenderComponent(displayDate);
 
-            var pv1 = RenderParams.For(RenderParams.P<DisplayDate, DateTime>(c => c.Today, today));
+            var fragment = await blazorRenderer.RenderComponent(DisplayDate.CreateComponentParameters(today));
 
             await datastarService.PatchElementsAsync(fragment);
         });

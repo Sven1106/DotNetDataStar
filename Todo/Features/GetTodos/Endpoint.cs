@@ -9,7 +9,7 @@ public static class Endpoint
     {
         endpoints.MapGet("/getTodos", async (BlazorRenderer blazorRenderer, IDatastarService datastarService) =>
         {
-            var fragment = await blazorRenderer.RenderComponent(new ListTodos());
+            var fragment = await blazorRenderer.RenderComponent(ListTodos.CreateComponentParameters([("test1", false), ("test2", true)]));
             await datastarService.PatchElementsAsync(fragment);
         });
     }

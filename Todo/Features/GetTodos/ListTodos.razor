@@ -1,3 +1,15 @@
 ﻿<div id="getTodos" class="nes-container with-title">
     <p class="title">ListTodos</p>
+    @foreach (var todo in Todos)
+    {
+        <label style="width: 100%;">
+            <input type="checkbox" class="nes-checkbox" checked="@todo.isChecked" />
+            <span>@todo.name</span>
+        </label>
+    }
 </div>
+
+@code
+{
+    [Parameter] public required List<(string name, bool isChecked)> Todos { get; set; }
+}
