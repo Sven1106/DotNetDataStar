@@ -1,0 +1,9 @@
+<button type="button" @attributes="@InputAttributes" class="nes-btn is-primary">@ChildContent</button>
+
+@code
+{
+    [Parameter] [EditorRequired] public required RenderFragment ChildContent { get; set; }
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? InputAttributes { get; set; }
+}

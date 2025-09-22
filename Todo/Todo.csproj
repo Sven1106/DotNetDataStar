@@ -7,7 +7,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Shared\Shared.csproj"/>
+        <PackageReference Include="Westwind.AspNetCore.LiveReload" Version="0.5.2"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <ProjectReference Include="..\Shared\Shared.csproj"/>
+    </ItemGroup>
+    
 </Project>

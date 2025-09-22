@@ -1,8 +1,9 @@
 using System.Reflection;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace Empty;
+namespace Shared;
 
 public class BlazorRenderer(HtmlRenderer htmlRenderer)
 {
@@ -23,5 +24,15 @@ public class BlazorRenderer(HtmlRenderer htmlRenderer)
             var output = await htmlRenderer.RenderComponentAsync<T>(ParameterView.FromDictionary(parameters));
             return output.ToHtmlString();
         });
+    }
+}
+
+public static class BlazorRendererExtensions
+{
+    public static IServiceCollection AddBlazorRenderer(this IServiceCollection services)
+    {
+        services.AddScoped<HtmlRenderer>();
+        services.AddScoped<BlazorRenderer>();
+        return services;
     }
 }

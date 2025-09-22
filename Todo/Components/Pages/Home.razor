@@ -1,0 +1,10 @@
+@page "/"
+
+<main id="main" data-signals="{'input':'','output':'what'}" style="display: flex; flex-direction: column; gap: 20px;">
+    <div id="getTodos" data-on-load="@@get('/getTodos')"></div>
+    <BigButton data-on-click=@("@get('/displayDate')")>Display Date</BigButton>
+    <div id="target"></div>
+    <input name="input" type="text" placeholder="input:" data-bind-input/>
+    <span data-text="$output"></span>
+    <button data-on-click=@("@post('/changeOutput')")>Change Output</button>
+</main>

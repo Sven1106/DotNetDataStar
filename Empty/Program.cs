@@ -3,12 +3,12 @@ using Empty;
 using Empty.Components;
 using Empty.Components.Partials;
 using Microsoft.AspNetCore.Components.Web;
+using Shared;
 using StarFederation.Datastar.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents();
-builder.Services.AddScoped<HtmlRenderer>();
-builder.Services.AddScoped<BlazorRenderer>();
+builder.Services.AddBlazorRenderer();
 builder.Services.AddDatastar();
 builder.Services.AddAntiforgery();
 var app = builder.Build();
