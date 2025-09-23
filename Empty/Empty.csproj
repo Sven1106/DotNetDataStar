@@ -7,7 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\RazorComponentRenderer\RazorComponentRenderer.csproj" />
+        <PackageReference Include="StarFederation.Datastar" Version="1.1.0"/>
+        <PackageReference Include="RazorComponentRenderer" Version="1.0.0"/>
     </ItemGroup>
 
 </Project>
