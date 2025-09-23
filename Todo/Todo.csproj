@@ -7,12 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Westwind.AspNetCore.LiveReload" Version="0.5.2"/>
-    </ItemGroup>
-
-    <ItemGroup>
-        <ProjectReference Include="..\RazorComponentRenderer\RazorComponentRenderer.csproj"/>
-        <ProjectReference Include="..\RazorComponentRenderer.Generators\RazorComponentRenderer.Generators.csproj" OutputItemType="Analyzer"/>
+        <PackageReference Include="RazorComponentRenderer" Version="1.0.0" />
+        <PackageReference Include="Westwind.AspNetCore.LiveReload" Version="0.5.2" />
     </ItemGroup>
 
 </Project>
