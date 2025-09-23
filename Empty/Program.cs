@@ -3,13 +3,13 @@ using Empty;
 using Empty.Components;
 using Empty.Components.Partials;
 using Microsoft.AspNetCore.Components.Web;
-using BlazorRenderer;
-using BlazorRenderer.DependencyInjection.ServiceCollectionExtensionMethods;
+using RazorComponentRenderer;
+using RazorComponentRenderer.DependencyInjection.ServiceCollectionExtensionMethods;
 using StarFederation.Datastar.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents();
-builder.Services.AddBlazorRenderer();
+builder.Services.AddRazorComponentRenderer();
 builder.Services.AddDatastar();
 builder.Services.AddAntiforgery();
 var app = builder.Build();
@@ -21,14 +21,14 @@ app.UseAntiforgery();
 
 app.MapRazorComponents<App>();
 
-app.MapGet("/displayDate", async (BlazorRendererService blazorRendererService, IDatastarService datastarService) =>
+app.MapGet("/displayDate", async (RazorComponentRendererService razorComponentRendererService, IDatastarService datastarService) =>
 {
     var today = DateTime.Now;
     var displayDate = new DisplayDate
     {
         Today = today
     };
-    // var fragment = await blazorRendererService.RenderComponent(displayDate);
+    // var fragment = await razorComponentRendererService.RenderComponent(displayDate);
     // await datastarService.PatchElementsAsync(fragment);
 });
 

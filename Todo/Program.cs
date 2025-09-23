@@ -1,5 +1,5 @@
-using BlazorRenderer;
-using BlazorRenderer.DependencyInjection.ServiceCollectionExtensionMethods;
+using RazorComponentRenderer;
+using RazorComponentRenderer.DependencyInjection.ServiceCollectionExtensionMethods;
 using StarFederation.Datastar.DependencyInjection;
 using Todo.Components;
 using Todo.Features;
@@ -13,7 +13,7 @@ builder.Services.AddRazorComponents();
 builder.Services.AddLiveReload();
 builder.Services.AddDatastar();
 
-builder.Services.AddBlazorRenderer();
+builder.Services.AddRazorComponentRenderer();
 
 var app = builder.Build();
 

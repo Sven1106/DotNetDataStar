@@ -11,12 +11,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\BlazorRenderer\BlazorRenderer.csproj"/>
-        <ProjectReference Include="..\ComponentParameterGenerator\ComponentParameterGenerator.csproj" OutputItemType="Analyzer"/>
+        <ProjectReference Include="..\RazorComponentRenderer\RazorComponentRenderer.csproj"/>
+        <ProjectReference Include="..\RazorComponentRenderer.Generators\RazorComponentRenderer.Generators.csproj" OutputItemType="Analyzer"/>
     </ItemGroup>
-
-    <PropertyGroup>
-        <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
-    </PropertyGroup>
 
 </Project>
