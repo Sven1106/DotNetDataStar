@@ -4,10 +4,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Empty", "Empty\Empty.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo", "Todo\Todo.csproj", "{A509ED94-B9B0-4E19-9369-82FAF08AF002}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorComponentRenderer", "RazorComponentRenderer\RazorComponentRenderer.csproj", "{D1B4C629-C703-4501-98DA-6CE1B6F97AAE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorComponentRenderer.Generators", "RazorComponentRenderer.Generators\RazorComponentRenderer.Generators.csproj", "{4F2B3977-9337-4864-8891-1075DB4E3453}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,13 +18,5 @@ Global
 		{A509ED94-B9B0-4E19-9369-82FAF08AF002}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A509ED94-B9B0-4E19-9369-82FAF08AF002}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A509ED94-B9B0-4E19-9369-82FAF08AF002}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D1B4C629-C703-4501-98DA-6CE1B6F97AAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D1B4C629-C703-4501-98DA-6CE1B6F97AAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D1B4C629-C703-4501-98DA-6CE1B6F97AAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D1B4C629-C703-4501-98DA-6CE1B6F97AAE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4F2B3977-9337-4864-8891-1075DB4E3453}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4F2B3977-9337-4864-8891-1075DB4E3453}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4F2B3977-9337-4864-8891-1075DB4E3453}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4F2B3977-9337-4864-8891-1075DB4E3453}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

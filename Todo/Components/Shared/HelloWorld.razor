@@ -1,0 +1,7 @@
+@* HelloWorld.razor *@
+
+<h1>Hello @(Name ?? "World")!</h1>
+
+@code {
+    [Parameter] public string? Name { get; set; }
+}
