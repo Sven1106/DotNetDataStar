@@ -1,0 +1,5 @@
+<form id="createTodoInput">
+    <AntiforgeryToken/>
+    <input name="name" type="text" placeholder="input:"
+           data-on-keydown__window=@("evt.key === 'Enter' && (evt.preventDefault(), @post('/createTodo', { contentType: 'form' }).then(() => { evt.target.value = ''; }))")/>
+</form>

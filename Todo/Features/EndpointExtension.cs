@@ -7,6 +7,7 @@ public static class EndpointExtension
     {
         DisplayDate.Endpoint.Map(endpoints);
         GetTodos.Endpoint.Map(endpoints);
+        CreateTodo.Endpoint.Map(endpoints);
         return endpoints;
     }
 }

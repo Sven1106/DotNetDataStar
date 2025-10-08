@@ -2,8 +2,8 @@
     <p class="title">ListTodos</p>
     @foreach (var todo in Todos)
     {
-        <label style="width: 100%;">
-            <input type="checkbox" class="nes-checkbox" checked="@todo.isChecked" />
+        <label style="width: 100%;" id="@todo.id">
+            <input type="checkbox" class="nes-checkbox" checked="@todo.isChecked"/>
             <span>@todo.name</span>
         </label>
     }
@@ -11,5 +11,5 @@
 
 @code
 {
-    [Parameter] public required List<(string name, bool isChecked)> Todos { get; set; }
+    [Parameter] public required List<(Guid id, string name, bool isChecked)> Todos { get; set; }
 }
