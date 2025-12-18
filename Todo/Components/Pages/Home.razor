@@ -3,9 +3,9 @@
 
 <main id="main" data-signals="{'input':'','output':'what'}" style="display: flex; flex-direction: column; gap: 50px;">
     <CreateTodoInput/>
-    <div id="getTodos" data-on-load="@@get('/getTodos')"></div>
-    <BigButton data-on-click=@("@get('/displayDate')")>Display Date</BigButton>
+    <div id="getTodos" data-init=@("@get('/getTodos', { requestCancellation: 'disabled'})")></div>
+    <BigButton data-on:click=@("@get('/displayDate')")>Display Date</BigButton>
     <div id="target"></div>
     <span data-text="$output"></span>
-    <button data-on-click=@("@post('/changeOutput')")>Change Output</button>
+    <button data-on:click=@("@post('/changeOutput')")>Change Output</button>
 </main>

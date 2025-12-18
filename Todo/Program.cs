@@ -25,4 +25,5 @@ if (builder.Environment.IsDevelopment())
 
 app.MapRazorComponents<App>();
 app.MapAllEndpoints();
+app.UseAntiforgery();
 app.Run();
